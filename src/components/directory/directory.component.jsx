@@ -11,7 +11,7 @@ class Directory extends Component {
                   title: 'hats',
                   imageUrl: 'https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=749&q=80',
                   id: 1,
-                  linkUrl: 'shop/hats'
+                  linkUrl: 'hats',
                 },
                 {
                   title: 'jackets',
@@ -40,16 +40,15 @@ class Directory extends Component {
                   id: 5,
                   linkUrl: 'shop/mens',
                   size: 'large'
-                }]
-              
+                }],
         }
     }
 
     render() {
         return (
             <div className='directory-menu'>
-                {this.state.sections.map(({title, imageUrl, id, size}) => (
-                <MenuItem title = {title} key = {id} imageUrl = {imageUrl} size ={size}  />
+                {this.state.sections.map(({id, ...otherSectionProps}) => (
+                <MenuItem key = {id}  {...otherSectionProps} />
                 ))}
             </div>
         );
